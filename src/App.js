@@ -6,15 +6,17 @@ function App() {
 
   const getInputValue = (e) => {
     setInputVal(e.target.value);
+  }
 
-
+  const getWeatherInfo = () => {
+    console.log(inputVal)
   }
   return (
     <div className="App">
       <h1 className='heading'>Weather App</h1>
       <div className='inputField'>
         <input type="text" onChange={getInputValue} />
-        <button>get weather data</button>
+        <button onClick={getWeatherInfo}>get weather data</button>
       </div>
       <main className='weather-container'>
         <div className='left'>
