@@ -3,10 +3,16 @@
   box-sizing: border-box;
 }
 
+:root {
+  --day-background: #58BAC9;
+  --night-background:#494E60 ;
+}
+
+
 
 .App{
   padding: 10px;
-  width: 350px;
+  width: 400px;
   margin: 60px auto;
   display: flex;
   flex-direction: column;
@@ -15,15 +21,15 @@
 }
 
 header{
-  width: 300px;
+  width: 350px;
   padding: 10px;
-  border: 1px solid gray;
   border-radius: 4px;
   margin-bottom: 10px;
 }
 
 .heading{
   text-align: center;
+  color: #C7F4FD;
 }
 
 .input-field{
@@ -49,18 +55,23 @@ button{
   border-radius: 4px;
   padding: 5px;
   border-style: none;
+  background-color: #4FA3B9;
+  color: #C7F4FD ;
 }
 
 .card{
   padding: 10px;
-  width: 300px;
+  width: 350px;
   display: flex;
   flex-direction: column;
-  background-color: #8CD1D9;
-  border: 1px solid gray;
+  background-image:url("./assets/morning.jpg");
+  background-position: center;
+  background-size: cover;
+
   border-radius: 4px;
   align-items: center;
   justify-content: center;
+  box-shadow: 10px 10px 10px 10px #36717B;
 }
 
 .details{

@@ -56,8 +56,8 @@ function App() {
           </div>
         </div>
         <div className='city'>
-          <h3>City Name</h3>
-          <h4>weather situation</h4>
+          <h3>Leipzig</h3>
+          <h4>sunny</h4>
         </div>
         <WiDaySunnyOvercast className='big-weather'/>
       </main>
