@@ -1,5 +1,11 @@
 import { useState } from 'react';
 import './App.css';
+import {WiDayCloudy} from "react-icons/wi";
+import {WiStrongWind} from "react-icons/wi";
+import {WiHumidity} from "react-icons/wi";
+import { FiArrowUp } from "react-icons/fi";
+import { FiArrowDown } from "react-icons/fi";
+import { WiDaySunnyOvercast } from "react-icons/wi";
 
 function App() {
   const [inputVal, setInputVal] = useState("Berlin");
@@ -13,25 +19,47 @@ function App() {
   }
   return (
     <div className="App">
-      <h1 className='heading'>Weather App</h1>
-      <div className='inputField'>
-        <input type="text" onChange={getInputValue} />
-        <button onClick={getWeatherInfo}>get weather data</button>
-      </div>
-      <main className='weather-container'>
-        <div className='left'>
-          <h2>feels like 23°C</h2>
-          <h3>city name</h3>
-          <img src="https://picsum.photos/100" alt="" />
+      <header className='top'>
+        <h1 className='heading'>Weather App</h1>
+        <div className='input-field'>
+          <input type="text" onChange={getInputValue} />
+          <button onClick={getWeatherInfo}>get weather data</button>
         </div>
-        <div className='right'>
-          <h1>24°C</h1>
-          <img src="https://picsum.photos/200" alt="" />
-          <h2>humidity</h2>
-          <h2>pressure</h2>
-          <h2>Min Temp: </h2>
-          <h2>Max Temp: </h2>
+      </header>
+      <main className='card'>
+        <div className='details'>
+          <p className='details-p'>
+            <WiDayCloudy className='md-logos'/>
+            <span className='details-info feel'>32</span>°C
+          </p>
+          <p className='details-p'>
+            <WiStrongWind className='md-logos'/>
+            <span className='details-info wind'>3.1</span>m/s
+          </p>
+          <p className='details-p'>
+            <WiHumidity className='md-logos'/>
+            <span className='details-info humidity'>86</span>%
+          </p>
         </div>
+        <div className='main-temp'>
+          <p className='num'>32</p>
+          <div className='min-max'>
+            <p className='celcius'>°C</p>
+            <p className='min-max-nums'>
+              <FiArrowUp/>
+              <span className='details-info'>5</span>°
+            </p>
+            <p className='min-max-nums'>
+              <FiArrowDown/>
+              <span className='details-info'>4</span>°
+            </p>
+          </div>
+        </div>
+        <div className='city'>
+          <h3>City Name</h3>
+          <h4>weather situation</h4>
+        </div>
+        <WiDaySunnyOvercast className='big-weather'/>
       </main>
     </div>
   );
