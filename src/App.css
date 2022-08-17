@@ -59,6 +59,14 @@ button{
   color: #C7F4FD ;
 }
 
+button:active{
+  background-color:#3A8496 ;
+}
+
+button:hover{
+  cursor: pointer;
+}
+
 .card{
   padding: 10px;
   width: 350px;
