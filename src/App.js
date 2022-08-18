@@ -42,10 +42,6 @@ function App() {
     "50n": <WiNightFog/>
   }
 
-   useEffect(()=>{
-     getWeatherInfo()
-   }, [])
-
    //! HOW CAN I USE IT HERE?
    //! WHAT IS THIS WARNING MESSAGE? => useEffect hook has a missing dependency, include it or delete dependency array
   //! useEffect => it execute only once on load, if dependency array is there but empty
@@ -80,6 +76,31 @@ function App() {
       }
     })
   }
+
+  useEffect(() => {
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=Leipzig&appid=${process.env.REACT_APP_API_KEY}&units=metric`)
+    .then(response => response.json())
+    .then(result => {
+      if(result.cod !== 200){
+        alert(result.message)
+      }else{
+        console.log(result)
+        setWeather({
+          feelsLike:result.main.feels_like,
+          icon:result.weather[0].icon,
+          humidity: result.main.humidity,
+          temperature: result.main.temp,
+          minTemp: result.main.temp_min,
+          maxTemp:result.main.temp_max,
+          wind:result.wind.speed,
+          press: result.main.pressure,
+          weat: result.weather[0].main,
+          name: result.name
+        })
+
+      }
+    })
+  }, [])
 
 
   return (
