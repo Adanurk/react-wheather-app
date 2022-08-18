@@ -12,12 +12,23 @@
 
 .App{
   padding: 10px;
-  width: 400px;
-  margin: 60px auto;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center
+  justify-content: center;
+}
+
+.day{
+  background-color: var(--day-background);
+  /* color: #4FA3B9; */
+  color: #C7F4FD;
+}
+
+.night{
+  background-color: var(--night-background);
+  color: #8F97A5;
 }
 
 header{
@@ -29,7 +40,7 @@ header{
 
 .heading{
   text-align: center;
-  color: #C7F4FD;
+
 }
 
 .input-field{
@@ -55,8 +66,17 @@ button{
   border-radius: 4px;
   padding: 5px;
   border-style: none;
+}
+
+.btn-day{
   background-color: #4FA3B9;
   color: #C7F4FD ;
+}
+
+.btn-night{
+  color: #C7F4FD;
+  background-color: #8F97A5;
+
 }
 
 button:active{
@@ -72,14 +92,15 @@ button:hover{
   width: 350px;
   display: flex;
   flex-direction: column;
-  background-image:url("./assets/morning.jpg");
+  /* background-image:url("./assets/morning.jpg"); */
   background-position: center;
   background-size: cover;
 
   border-radius: 4px;
   align-items: center;
   justify-content: center;
-  box-shadow: 10px 10px 10px 10px #36717B;
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  /* box-shadow: 10px 10px 10px 10px #36717B; */
 }
 
 .details{
@@ -139,4 +160,12 @@ button:hover{
   font-size: 12rem;
   margin-bottom: 3rem;
   width: 12rem;
+}
+
+.app--day {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('./assets/morning.jpg');
+}
+.app--night {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('./assets/night.jpg');
+  color: #8F97A5;
 }

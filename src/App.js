@@ -7,6 +7,7 @@ import { FiArrowDown } from "react-icons/fi";
 import {WiDaySunny, WiNightClear, WiDayCloudy, WiNightAltCloudy, WiCloud, WiCloudy, WiNightAltCloudyHigh, WiDayHail, WiNightAltHail, WiDayRain, WiNightRain, WiDayLightning, WiNightLightning, WiDaySnow, WiNightAltSnow, WiDayFog, WiNightFog} from "react-icons/wi"
 
 function App() {
+  let time = new Date().getHours;
   const [inputValue, setInputVal] = useState("Leipzig");
   const [weather, setWeather] = useState({
     feelsLike:"23",
@@ -103,16 +104,17 @@ function App() {
   }, [])
 
 
+
   return (
-    <div className="App">
+    <div className={`App ${(time < 5 && time < 18) ? "day" : "night"}`}>
       <header className='top'>
         <h1 className='heading'>Weather App</h1>
         <div className='input-field'>
           <input type="text" onChange={getInputValue} />
-          <button onClick={getWeatherInfo}>get weather data</button>
+          <button onClick={getWeatherInfo} className={`${(time < 5 && time < 18) ? "btn-day" : "btn-night"}`}>get weather data</button>
         </div>
       </header>
-      <main className='card'>
+      <main className={`card ${(time < 5 && time < 18) ? "app--day" : "app--night"}`}>
         <div className='details'>
           <p className='details-p'>
             <WiDayCloudy className='md-logos'/>
