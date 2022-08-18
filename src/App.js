@@ -1,18 +1,16 @@
 import { useState, useEffect } from 'react';
 import './App.css';
-import {WiDayCloudy} from "react-icons/wi";
 import {WiStrongWind} from "react-icons/wi";
 import {WiHumidity} from "react-icons/wi";
 import { FiArrowUp } from "react-icons/fi";
 import { FiArrowDown } from "react-icons/fi";
-import { WiDaySunnyOvercast } from "react-icons/wi";
-
+import {WiDaySunny, WiNightClear, WiDayCloudy, WiNightAltCloudy, WiCloud, WiCloudy, WiNightAltCloudyHigh, WiDayHail, WiNightAltHail, WiDayRain, WiNightRain, WiDayLightning, WiNightLightning, WiDaySnow, WiNightAltSnow, WiDayFog, WiNightFog} from "react-icons/wi"
 
 function App() {
   const [inputValue, setInputVal] = useState("Leipzig");
   const [weather, setWeather] = useState({
     feelsLike:"23",
-    icon:"20d",
+    icon:"01d",
     humidity: 80,
     temperature: 25,
     minTemp: 24,
@@ -23,9 +21,33 @@ function App() {
     name: "Berlin"
   });
 
-  useEffect(()=>{
-    getWeatherInfo()
-  }, [])
+  const weatherIcons = {
+    "01d": <WiDaySunny/>,
+    "01n": <WiNightClear/>,
+    "02d": <WiDayCloudy/>,
+    "02n": <WiNightAltCloudy/>,
+    "03d": <WiCloud/>,
+    "03n": <WiCloud/>,
+    "04d": <WiCloudy/>,
+    "04n": <WiNightAltCloudyHigh/>,
+    "09d": <WiDayHail/>,
+    "09n": <WiNightAltHail/>,
+    "10d": <WiDayRain/>,
+    "10n": <WiNightRain/>,
+    "11d": <WiDayLightning/>,
+    "11n": <WiNightLightning/>,
+    "13d": <WiDaySnow/>,
+    "13n": <WiNightAltSnow/>,
+    "50d": <WiDayFog/>,
+    "50n": <WiNightFog/>
+  }
+
+   useEffect(()=>{
+     getWeatherInfo()
+   }, [])
+
+   //! HOW CAN I USE IT HERE?
+   //! WHAT IS THIS WARNING MESSAGE? => useEffect hook has a missing dependency, include it or delete dependency array
 
   //! useEffect => it execute only once on load
 
@@ -58,7 +80,6 @@ function App() {
 
       }
     })
-    
   }
 
 
@@ -104,10 +125,9 @@ function App() {
           <h3>{weather.name}</h3>
           <h4>{weather.weat}</h4>
         </div>
-        {/* <div className='big-weather'> */}
-          <img src={`http://openweathermap.org/img/wn/${weather.icon}@2x.png`}  alt="weather" className='big-weather'/>
-          {/* <WiDaySunnyOvercast /> */}
-        {/* </div> */}
+        <div className='big-weather'>
+          {weatherIcons[weather.icon]}
+        </div>
       </main>
     </div>
   );
