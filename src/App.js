@@ -43,10 +43,6 @@ function App() {
     "50n": <WiNightFog/>
   }
 
-   //! HOW CAN I USE IT HERE?
-   //! WHAT IS THIS WARNING MESSAGE? => useEffect hook has a missing dependency, include it or delete dependency array
-  //! useEffect => it execute only once on load, if dependency array is there but empty
-
   const getInputValue = (e) => {
     setInputVal(e.target.value);
   }
