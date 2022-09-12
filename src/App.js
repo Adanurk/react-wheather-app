@@ -100,15 +100,15 @@ function App() {
   }, [])
 
   return (
-    <div className={`App ${(time > 5 && time < 18) ? "day" : "night"}`}>
+    <div className={`App ${weather.icon.includes("d") ? "day" : "night"}`}>
       <header className='top'>
         <h1 className='heading'>Weather App</h1>
         <div className='input-field'>
           <input type="text" onChange={getInputValue} />
-          <button onClick={getWeatherInfo} className={`${(time > 5 && time < 18) ? "btn-day" : "btn-night"}`}>get weather data</button>
+          <button onClick={getWeatherInfo} className={`${weather.icon.includes("d") ? "btn-day" : "btn-night"}`}>get weather data</button>
         </div>
       </header>
-      <main className={`card ${(time > 5 && time < 18) ? "app--day" : "app--night"}`}>
+      <main className={`card ${weather.icon.includes("d") ? "app--day" : "app--night"}`}>
         <div className='details'>
           <p className='details-p'>
             <WiDayCloudy className='md-logos'/>
